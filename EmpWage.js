@@ -10,6 +10,7 @@ const IS_FULL_TIME = 2
 const FULL_TIME_HRS = 8
 const PART_TIME_HRS = 4
 const WAGE_PER_HRS = 20
+const NUM_OF_WORKING_DAYS = 10
 let daily_wage , empHrs = 0
 
     function getWorkingHrs(empCheck){
@@ -26,7 +27,11 @@ let daily_wage , empHrs = 0
         }
     }
     
+    for(let day = 0; day < NUM_OF_WORKING_DAYS; day++){
     let empCheck =Math.floor(Math.random()*10 % 3)
-    empHrs = getWorkingHrs(empCheck)
+    empHrs += getWorkingHrs(empCheck)
+    }
+    
     daily_wage = empHrs * WAGE_PER_HRS
-    console.log("Daily Emp Wage = "+daily_wage)
+    console.log("**************")
+    console.log("Total Hrs: "+empHrs +" Daily Emp Wage = "+daily_wage)
